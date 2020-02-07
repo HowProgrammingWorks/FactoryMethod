@@ -6,7 +6,7 @@ const readline = require('readline');
 class Database {
   constructor() {
     const proto = Object.getPrototypeOf(this);
-    if (proto === Database) {
+    if (proto.constructor === Database) {
       throw new Error('abstract class should not be instanciated');
     }
   }
@@ -19,7 +19,7 @@ class Database {
 class Cursor {
   constructor() {
     const proto = Object.getPrototypeOf(this);
-    if (proto === Cursor) {
+    if (proto.constructor === Cursor) {
       throw new Error('abstract class should not be instanciated');
     }
     this.current = 0;

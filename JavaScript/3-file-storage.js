@@ -7,12 +7,12 @@ class Database {
   constructor() {
     const proto = Object.getPrototypeOf(this);
     if (proto.constructor === Database) {
-      throw new Error('abstract class should not be instanciated');
+      throw new Error('Abstract class should not be instanciated');
     }
   }
 
   select() {
-    throw new Error('select(${}) method is not implemented');
+    throw new Error('Method is not implemented');
   }
 }
 
@@ -20,13 +20,13 @@ class Cursor {
   constructor() {
     const proto = Object.getPrototypeOf(this);
     if (proto.constructor === Cursor) {
-      throw new Error('abstract class should not be instanciated');
+      throw new Error('Abstract class should not be instanciated');
     }
     this.current = 0;
   }
 
   [Symbol.asyncIterator]() {
-    throw new Error('iterator is not implemented');
+    throw new Error('Method is not implemented');
   }
 }
 

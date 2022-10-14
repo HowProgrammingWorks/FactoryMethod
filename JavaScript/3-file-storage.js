@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs');
-const readline = require('readline');
+const fs = require('node:fs');
+const readline = require('node:readline');
 
 class Database {
   constructor() {

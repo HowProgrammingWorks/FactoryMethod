@@ -34,15 +34,17 @@ class FileLineCursor extends Cursor {
   constructor(fileStorage, query) {
     super();
     this.query = query;
-    this.lines = readline.createInterface({
-      input: fileStorage.fileStream,
-      crlfDelay: Infinity,
-    })[Symbol.asyncIterator]();
+    this.lines = readline
+      .createInterface({
+        input: fileStorage.fileStream,
+        crlfDelay: Infinity,
+      })
+      [Symbol.asyncIterator]();
   }
 
   [Symbol.asyncIterator]() {
     const cursor = this;
-    return ({
+    return {
       async next() {
         do {
           const { value, done } = await cursor.lines.next();
@@ -56,8 +58,8 @@ class FileLineCursor extends Cursor {
           }
           if (condition) return { value: data, done: false };
         } while (true);
-      }
-    });
+      },
+    };
   }
 }
 
@@ -75,10 +77,12 @@ class FileStorage extends Database {
 
 // Usage
 
-(async () => {
+const main = async () => {
   const db = new FileStorage('./storage.dat');
   const cursor = db.select({ city: 'Roma' });
   for await (const record of cursor) {
     console.dir(record);
   }
-})();
+};
+
+main();

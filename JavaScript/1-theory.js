@@ -4,7 +4,7 @@ class AbstractCreator {
   constructor() {
     const proto = Object.getPrototypeOf(this);
     if (proto.constructor === AbstractCreator) {
-      throw new Error('Abstract class should not be instanciated');
+      throw new Error('Abstract class should not be instantiated');
     }
   }
 
@@ -17,7 +17,7 @@ class AbstractProduct {
   constructor() {
     const proto = Object.getPrototypeOf(this);
     if (proto.constructor === AbstractProduct) {
-      throw new Error('Abstract class should not be instanciated');
+      throw new Error('Abstract class should not be instantiated');
     }
   }
 }

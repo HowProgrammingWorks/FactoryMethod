@@ -1,0 +1,11 @@
+{
+  "name": "file-storage-project",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
